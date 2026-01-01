@@ -1,0 +1,5 @@
+Model,Accuracy,F1 Score
+DeepJIT,0.739,0.690
+CodeBERT,0.861,0.851
+GraphCodeBERT,0.867,0.846
+Longformer,0.882,0.874

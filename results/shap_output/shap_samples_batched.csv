@@ -1,0 +1,741 @@
+idx_in_test_after_cleaning,text,label
+295,"    public ArrayList<ErrorMsg> getWarnings() {
+        return _parser.getWarnings();
+    }
+
+
+
+[COMMENT]
+Get a list of all compile warning messages",1
+298,"    public int atAdPos(final int pos) {
+        final int take_int = (int) Math.floor((pos + 1) / adfrequency);
+        Log.d(""atAdPosE2"", take_int + """");
+        return take_int;
+    }
+
+
+[COMMENT]
+to display the accumulator for the Ad position",0
+361,"    public List getAnchorHRefs(boolean duplicate) {
+        if (duplicate) {
+            return this.htmlHandler.getAllAHRefs();
+        }
+        return this.htmlHandler.getAHRefs();
+    }
+
+
+
+[COMMENT]
+Get Anchor Hrefs",1
+869,"	public Index parseAndUpdateIndex(List<JaxbRoot<XMLEntityMappings>> mappings, Index annotationIndex) {
+		List<XMLEntityMappings> list = new ArrayList<XMLEntityMappings>( mappings.size() );
+		for ( JaxbRoot<XMLEntityMappings> jaxbRoot : mappings ) {
+			list.add( jaxbRoot.getRoot() );
+		}
+		return new EntityMappingsMocker( list, annotationIndex, metadata.getServiceRegistry() ).mockNewIndex();
+	}
+
+
+[COMMENT]
+Parses the given xml configuration files and returns a updated annotation index",0
+915,"	private boolean isBreakOnOpcode(Integer opcode) {
+		boolean shouldBreak = false;
+		if (config.isBreakOnPingPong()) {
+			// break on every message type
+			shouldBreak = true;
+		} else {
+			// break only on non-ping/pong
+			boolean isPing = opcode.equals(WebSocketMessage.OPCODE_PING);
+			boolean isPong = opcode.equals(WebSocketMessage.OPCODE_PONG);
+			
+			if (!isPing && !isPong) {
+				shouldBreak = true;
+			}
+		}
+		return shouldBreak;
+	}
+
+
+[COMMENT]
+Check out if breakpoint should be applied on given  WebSocketMessageDTO#opcode.",0
+58,"    public final DBCompareColExpr in(Collection<?> values)
+    {
+        if (values==null || values.isEmpty())
+            return cmp(DBCmpType.EQUAL, null);
+        // create expression
+        return cmp(DBCmpType.IN, values);
+    }
+
+
+
+[COMMENT]
+Creates and returns an expression for the SQL ""in"" operator.",1
+933,"    public String getAuthor() {
+        return this.author;
+    }
+
+
+
+[COMMENT]
+Return the author",1
+320,"  public static boolean isSameType(MajorType type1, MajorType type2) {
+    return isSameTypeAndMode(type1, type2) &&
+           type1.getScale() == type2.getScale() &&
+           type1.getPrecision() == type2.getPrecision();
+  }
+
+
+[COMMENT]
+Check if two ""core"" types are the same, ignoring subtypes and children.",0
+125,"        protected int intersectsValidDropTarget(int id) {
+            LauncherAccessibilityDelegate delegate =
+                    LauncherAppState.getInstance().getAccessibilityDelegate();
+            if (delegate == null) {
+                return -1;
+            }
+
+            int y = id % mCountY;
+            int x = id / mCountY;
+            LauncherAccessibilityDelegate.DragInfo dragInfo = delegate.getDragInfo();
+
+            if (dragInfo.dragType == DragType.WIDGET) {
+                // For a widget, every cell must be vacant. In addition, we will return any valid
+                // drop target by which the passed id is contained.
+                boolean fits = false;
+
+                // These represent the amount that we can back off if we hit a problem. They
+                // get consumed as we move up and to the right, trying new regions.
+                int spanX = dragInfo.info.spanX;
+                int spanY = dragInfo.info.spanY;
+
+                for (int m = 0; m < spanX; m++) {
+                    for (int n = 0; n < spanY; n++) {
+
+                        fits = true;
+                        int x0 = x - m;
+                        int y0 = y - n;
+
+                        if (x0 < 0 || y0 < 0) continue;
+
+                        for (int i = x0; i < x0 + spanX; i++) {
+                            if (!fits) break;
+                            for (int j = y0; j < y0 + spanY; j++) {
+                                if (i >= mCountX || j >= mCountY || mOccupied[i][j]) {
+                                    fits = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if (fits) {
+                            return x0 * mCountY + y0;
+                        }
+                    }
+                }
+                return -1;
+            } else {
+                // For an icon, we simply check the view directly below
+                View child = getChildAt(x, y);
+                if (child == null || child == dragInfo.item) {
+                    // Empty cell. Good for an icon or folder.
+                    return id;
+                } else if (dragInfo.dragType != DragType.FOLDER) {
+                    // For icons, we can consider cells that have another icon or a folder.
+                    ItemInfo info = (ItemInfo) child.getTag();
+                    if (info instanceof AppInfo || info instanceof FolderInfo ||
+                            info instanceof ShortcutInfo) {
+                        return id;
+                    }
+                }
+                return -1;
+            }
+        }
+
+
+[COMMENT]
+Find the virtual view id corresponding to the top left corner of any drop region by which the passed id is contained.",0
+537,"    public boolean hasCorrelation() {
+      return !mapCorToCorRel.isEmpty();
+    }
+
+
+[COMMENT]
+Returns whether there are any correlating variables in this statement.",0
+957,"	public static String removeTags(String str)
+	{
+		return TAG_REGEXP.matcher(str).replaceAll("""");
+	}
+
+
+[COMMENT]
+Removes all tags from the given `str`.",0
+808,"	private ZapTextField getTxtProxyPort() {
+		if (txtProxyPort == null) {
+			txtProxyPort = new ZapTextField();
+		}
+		return txtProxyPort;
+	}
+
+
+[COMMENT]
+This method initializes txtProxyPort",0
+979,"    public long get(WithAttributes withAttributes) {
+        return withAttributes.getAttributes().get(this);
+    }
+
+
+
+[COMMENT]
+Extracts the attribute map from the specified  WithAttributes and returns the value of this attribute from the map.",1
+648,"    public int getPosition() {
+        return currentPosition;
+
+    }
+
+
+
+[COMMENT]
+Returns the position where the handler is currently, or where it is heading right now.",1
+763,"    protected Object convertBits(Column column, Field fieldDefn, Object data, int numBytes) {
+        return convertValue(column, fieldDefn, data, new byte[0], (r) -> {
+            if (data instanceof Boolean) {
+                Boolean value = (Boolean) data;
+                r.deliver(new byte[] { value.booleanValue() ? (byte) 1 : (byte) 0 });
+            }
+            else if (data instanceof Short) {
+                Short value = (Short) data;
+                ByteBuffer buffer = ByteBuffer.allocate(Short.BYTES);
+                buffer.order(ByteOrder.LITTLE_ENDIAN);
+                buffer.putShort(value.shortValue());
+                r.deliver(buffer.array());
+            }
+            else if (data instanceof Integer) {
+                Integer value = (Integer) data;
+                ByteBuffer buffer = ByteBuffer.allocate(Integer.BYTES);
+                buffer.order(ByteOrder.LITTLE_ENDIAN);
+                buffer.putInt(value.intValue());
+                r.deliver(buffer.array());
+            }
+            else if (data instanceof Long) {
+                Long value = (Long) data;
+                ByteBuffer buffer = ByteBuffer.allocate(Long.BYTES);
+                buffer.order(ByteOrder.LITTLE_ENDIAN);
+                buffer.putLong(value.longValue());
+                r.deliver(buffer.array());
+            }
+            else if (data instanceof byte[]) {
+                byte[] bytes = (byte[]) data;
+                if (bytes.length == 1) {
+                    r.deliver(bytes);
+                }
+                if (byteOrderOfBitType() == ByteOrder.BIG_ENDIAN) {
+                    // Reverse it to little endian ...
+                    int i = 0;
+                    int j = bytes.length - 1;
+                    byte tmp;
+                    while (j > i) {
+                        tmp = bytes[j];
+                        bytes[j] = bytes[i];
+                        bytes[i] = tmp;
+                        ++i;
+                        --j;
+                    }
+                }
+                r.deliver(padLittleEndian(numBytes, bytes));
+            }
+            else if (data instanceof BitSet) {
+                byte[] bytes = ((BitSet) data).toByteArray();
+                r.deliver(padLittleEndian(numBytes, bytes));
+            }
+        });
+    }
+
+
+[COMMENT]
+Converts a value object for an expected JDBC type of  Types#BIT of length 2+.",0
+5,"    public Struct ceDataAttribute() {
+        return recordParser.data();
+    }
+
+
+[COMMENT]
+Construct the value of the data attribute of CloudEvents.",0
+710,"    public static <T> T getObject(Heap heap, JsonValue name, Class<T> type) throws HeapException {
+        if (name.isNull()) {
+            return null;
+        }
+        return getRequiredObject(heap, name, type);
+    }
+
+
+
+[COMMENT]
+Retrieves an object from a heap with the specified name and type, or  null if the name is  null.",1
+863,"    public ApiResponse<Client> testClientModelWithHttpInfo(Client body) throws ApiException {
+        okhttp3.Call localVarCall = testClientModelValidateBeforeCall(body, null, null);
+        Type localVarReturnType = new TypeToken<Client>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+
+[COMMENT]
+To test \&quot;client\&quot; model",0
+602,"  public static Set<ImmutableBitSet> getUniqueKeys(RelNode rel) {
+    final BuiltInMetadata.UniqueKeys metadata =
+        rel.metadata(BuiltInMetadata.UniqueKeys.class);
+    return metadata.getUniqueKeys(false);
+  }
+
+
+[COMMENT]
+Returns the  BuiltInMetadata.UniqueKeys#getUniqueKeys(boolean) statistic.",0
+313,"  public List<SentenceFragment> clausesInSentence(CoreMap sentence) {
+    return clausesInSentence(sentence.get(SemanticGraphCoreAnnotations.EnhancedPlusPlusDependenciesAnnotation.class), true);
+  }
+
+
+[COMMENT]
+Find the clauses in a sentence.",0
+270,"	private static int getMaxOrLimit(final RowSelection selection, final Dialect dialect) {
+		final int firstRow = dialect.convertToFirstRowValue( getFirstRow( selection ) );
+		final int lastRow = selection.getMaxRows();
+		return dialect.useMaxForLimit() ? lastRow + firstRow : lastRow;
+	}
+
+
+[COMMENT]
+Some dialect-specific LIMIT clauses require the maximum last row number (aka, first_row_number + total_row_count), while others require the maximum returned row count (the total maximum number of rows to return).",0
+235,"    public Action cancelled(AtmosphereRequest req, AtmosphereResponse res)
+            throws IOException, ServletException {
+
+        synchronized (req) {
+            SessionTimeoutSupport.restoreTimeout(req);
+
+            AtmosphereResourceImpl r = null;
+            try {
+                if (trackActiveRequest) {
+                    long l = (Long) req.getAttribute(MAX_INACTIVE);
+                    if (l == -1) {
+                        // The closedDetector closed the connection.
+                        return timedoutAction;
+                    }
+                    req.setAttribute(MAX_INACTIVE, (long) -1);
+                }
+
+                logger.debug(""Cancelling the connection for request {}"", req);
+
+                r = (AtmosphereResourceImpl) req.resource();
+                if (r != null) {
+                    r.getAtmosphereResourceEvent().setCancelled(true);
+                    invokeAtmosphereHandler(r);
+
+                    try {
+                        r.getResponse().getOutputStream().close();
+                    } catch (Throwable t) {
+                        try {
+                            r.getResponse().getWriter().close();
+                        } catch (Throwable t2) {
+                        }
+                    }
+                }
+            } catch (Throwable ex) {
+                // Something wrong happenned, ignore the exception
+                logger.debug(""failed to cancel resource: "" + r, ex);
+            } finally {
+                config.framework().notify(Action.TYPE.CANCELLED, req, res);
+                try {
+                    if (r != null) {
+                        r.notifyListeners();
+                        r.setIsInScope(false);
+                        r.cancel();
+                    }
+                } catch (Throwable t) {
+                    logger.trace(""cancel"", t);
+                } finally {
+                    if (r != null) {
+                        destroyResource(r);
+                    }
+                }
+            }
+        }
+
+        return cancelledAction;
+    }
+
+
+[COMMENT]
+All proprietary Comet based  Servlet must invoke the cancelled method when the underlying WebServer detect that the client closed the connection.",0
+473,"    Class[] getServiceClasses( final Class type, final List issues )
+    {
+        final ServiceDescriptorSet set =
+            (ServiceDescriptorSet)type.getAnnotation( ServiceDescriptorSet.class );
+        if( null != set )
+        {
+            final ServiceDescriptor[] descriptors = set.value();
+            final Class[] services = new Class[descriptors.length];
+            for( int i = 0; i < descriptors.length; i++ )
+            {
+                ServiceDescriptor descriptor = descriptors[i];
+                services[i] = descriptor.type();
+            }
+            return services;
+        }
+        else
+        {
+            return new Class[0];
+        }
+    }
+
+
+
+[COMMENT]
+Retrieve an array of Classes for all the value that a Component offers.",1
+509,"        boolean findCellForSpan(int[] cellXY, int spanX, int spanY) {
+            // return the span represented by the CellInfo only there is no view there
+            //   (this.cell == null) and there is enough space
+
+            if (this.cell == null && this.spanX >= spanX && this.spanY >= spanY) {
+                if (cellXY != null) {
+                    cellXY[0] = cellX;
+                    cellXY[1] = cellY;
+                }
+                return true;
+            }
+
+            int startX = 0;
+            if (intersectX >= 0) {
+                startX = Math.max(startX, intersectX - (spanX - 1));
+            }
+            int endX = mCountX - (spanX - 1);
+            if (intersectX >= 0) {
+                endX = Math.min(endX, intersectX + (spanX - 1));
+            }
+            int startY = 0;
+            if (intersectY >= 0) {
+                startY = Math.max(startY, intersectY - (spanY - 1));
+            }
+            int endY = mCountY - (spanY - 1);
+            if (intersectY >= 0) {
+                endY = Math.min(endY, intersectY + (spanY - 1));
+            }
+
+            for (int x = startX; x < endX + 1; x++) {
+                inner:
+                for (int y = startY; y < endY; y++) {
+                    for (int i = 0; i < spanX; i++) {
+                        for (int j = 0; j < spanY; j++) {
+                            if (mOccupied[x + i][y + j]) {
+                                // small optimization: we can skip to below the row we just found
+                                // an occupied cell
+                                y += j;
+                                continue inner;
+                            }
+                        }
+                    }
+                    if (cellXY != null) {
+                        cellXY[0] = x;
+                        cellXY[1] = y;
+                    }
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+[COMMENT]
+Finds the upper-left coordinate of the first rectangle in the grid that can hold a cell of the specified dimensions.",1
+494,"    public org.apache.poi.ss.usermodel.Workbook transformXLS(InputStream is, Map beanParams) throws ParsePropertyException, InvalidFormatException {
+        org.apache.poi.ss.usermodel.Workbook hssfWorkbook = null;
+        try {
+            hssfWorkbook = WorkbookFactory.create(is);
+            transformWorkbook(hssfWorkbook, beanParams);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return hssfWorkbook;
+    }
+
+
+
+[COMMENT]
+Creates Workbook instance based on .xls template from a given InputStream and a number of beans",1
+1056,"	private boolean isCached(Serializable collectionKey, CollectionPersister persister) {
+		if ( persister.hasCache() ) {
+			CacheKey cacheKey = context.getSession().generateCacheKey(
+					collectionKey,
+			        persister.getKeyType(),
+			        persister.getRole()
+			);
+			return persister.getCacheAccessStrategy().get( cacheKey, context.getSession().getTimestamp() ) != null;
+		}
+		return false;
+	}
+
+
+[COMMENT]
+Get a batch of uninitialized collection keys for a given role",1
+1052,"    public static char[] union(char[]... list) {
+    	StringBuilder sb = new StringBuilder();
+    	
+    	for (char[] characters : list) {
+	        for (int i = 0; i < list.length; i++) {
+	            if (!contains(sb, characters[i]))
+	                sb.append(list[i]);
+	        }
+    	}
+
+        char[] toReturn = new char[sb.length()];
+        sb.getChars(0, sb.length(), toReturn, 0);
+        Arrays.sort(toReturn);
+        return toReturn;
+    }
+
+
+
+[COMMENT]
+Union multiple character arrays.",1
+525,"   public AnsiClazzes processCode(String code)
+   {
+      if (code == null || code.length() < 2)
+         return null;
+      if (code.charAt(0) != '\033' && code.charAt(code.length() - 1) != 'm')
+         return null;
+      if (code.length() == 2)
+      {
+         clazzes_.clear(); // CSIm is equivalent to CSI0m, which is 'reset'
+         blockClazzes_.clear();
+         return null;
+      }
+      
+      int extendedColor = 0;
+      boolean extendedMarkerSeen = false;
+      boolean extendedRGBMarkerSeen = false;
+      int extendedRGBColorsSeen = 0;
+      
+      String[] tokens = code.substring(2, code.length() - 1).split("";"");
+      for (String token : tokens)
+      {
+         int codeVal = StringUtil.parseInt(token,  -1);
+         if (codeVal == -1)
+            continue;
+
+         if (extendedColor > 0)
+         {
+            if (!extendedMarkerSeen && !extendedRGBMarkerSeen)
+            {
+               if (codeVal == EXT_BY_INDEX)
+               {
+                  extendedMarkerSeen = true;
+                  continue;
+               }
+               else if (codeVal == EXT_BY_RGB)
+               {
+                  extendedRGBMarkerSeen = true;
+                  extendedRGBColorsSeen = 0;
+               }
+               else
+               {
+                  // unknown extended color format; hard to recover so
+                  // just reset back to defaults and return
+                  clazzes_.clear();
+                  blockClazzes_.clear();
+                  return null;
+               }
+            }
+            else
+            {
+               // We don't support colors specified via RGB, but parse the
+               // sequence then ignore it in case there are supported 
+               // sequences after it
+               if (extendedRGBMarkerSeen)
+               {
+                  extendedRGBColorsSeen++;
+                  if (extendedRGBColorsSeen == 3 /*red, green, blue*/)
+                  {
+                     extendedColor = 0;
+                     extendedRGBMarkerSeen = false;
+                     extendedRGBColorsSeen = 0;
+                  }
+               }
+               else 
+               {
+                  if (extendedColor == FOREGROUND_EXT)
+                  {
+                     if (codeVal >= 0 && codeVal <= 255)
+                     {
+                        currentColor_.setExtended(codeVal);
+                        resetForeground();
+                        clazzes_.add(Color.clazzForColorIndex(codeVal, 
+                              false /*background*/));
+                     }
+                  }
+                  else
+                  {
+                     if (codeVal >= 0 && codeVal <= 255)
+                     {
+                        currentBgColor_.setExtended(codeVal);
+                        resetBackground();
+                        clazzes_.add(Color.clazzForColorIndex(codeVal, 
+                              true /*background*/));
+                     }
+                  }
+                  extendedColor = 0;
+                  extendedMarkerSeen = false;
+               }
+            }
+         }
+         else if (codeVal == RESET)
+         {
+            inverted_ = false;
+            currentColor_.reset();
+            currentBgColor_.reset();
+            clazzes_.clear();
+            blockClazzes_.clear();
+         }
+         else if (codeVal == BOLD)
+         {
+            clazzes_.add(BOLD_STYLE);
+         }
+         else if (codeVal == BLURRED)
+         {
+            // NYI clazzes_.add(BLURRED_STYLE);
+         }
+         else if (codeVal == BOLD_BLURRED_OFF)
+         {
+            clazzes_.remove(BOLD_STYLE);
+            // NYI clazzes_.remove(BLURRED_STYLE);
+         }
+         else if (codeVal == ITALIC)
+         {
+            clazzes_.add(ITALIC_STYLE);
+         }
+         else if (codeVal == ITALIC_OFF)
+         {
+            clazzes_.remove(ITALIC_STYLE);
+         }
+         else if (codeVal == UNDERLINE)
+         {
+            clazzes_.add(UNDERLINE_STYLE);
+         }
+         else if (codeVal == UNDERLINE_OFF)
+         {
+            clazzes_.remove(UNDERLINE_STYLE);
+         }
+         else if (codeVal == BLINKSLOW || codeVal == BLINKFAST)
+         {
+            clazzes_.add(BLINK_STYLE);
+         }
+         else if (codeVal == BLINK_OFF)
+         {
+            clazzes_.remove(BLINK_STYLE);
+         }
+         else if (codeVal == INVERSE)
+         {
+            if (!inverted_)
+            {
+               resetForeground();
+               resetBackground();
+               Color newFg = invertFgColor();
+               Color newBg = invertBgColor();
+               currentColor_ = newFg;
+               currentBgColor_ = newBg;
+               inverted_ = true;
+            }
+         }
+         else if (codeVal == INVERSE_OFF)
+         {
+            if (inverted_)
+            {
+               resetForeground();
+               resetBackground();
+               Color newFg = invertFgColor();
+               Color newBg = invertBgColor();
+               currentColor_ = newFg;
+               currentBgColor_ = newBg;
+               inverted_ = false;
+            }
+         }
+         else if (codeVal == HIDDEN)
+         {
+            clazzes_.add(HIDDEN_STYLE);
+         }
+         else if (codeVal == HIDDEN_OFF)
+         {
+            clazzes_.remove(HIDDEN_STYLE);
+         }
+         else if (codeVal == STRIKETHROUGH)
+         {
+            clazzes_.add(STRIKETHROUGH_STYLE);
+         }
+         else if (codeVal == STRIKETHROUGH_OFF)
+         {
+            clazzes_.remove(STRIKETHROUGH_STYLE);
+         }
+         else if (Color.isFgColorCode(codeVal))
+         {
+            currentColor_.setCode(codeVal);
+            resetForeground();
+            clazzes_.add(clazzForColor(codeVal));
+         }
+         else if (Color.isBgColorCode(codeVal))
+         {
+            currentBgColor_ = new Color(false, codeVal);
+            resetBackground();
+            clazzes_.add(clazzForBgColor(codeVal));
+         }
+         else if (codeVal == RESET_FOREGROUND)
+         {
+            currentColor_.reset();
+            resetForeground();
+         }
+         else if (codeVal == RESET_BACKGROUND)
+         {
+            currentBgColor_.reset();
+            resetBackground();
+         }
+         else if (codeVal == FOREGROUND_EXT)
+         {
+           extendedColor = codeVal;
+           extendedMarkerSeen = false;
+         }
+         else if (codeVal == BACKGROUND_EXT)
+         {
+           extendedColor = codeVal;
+           extendedMarkerSeen = false;
+         }
+         else if (codeVal == FONT_NINE)
+         {
+            blockClazzes_.add(FONT_NINE_STYLE);
+         }
+         else if (codeVal == DEFAULT_FONT || 
+               (codeVal >= FONT_ONE && codeVal <= FONT_EIGHT))
+         {
+            blockClazzes_.remove(FONT_NINE_STYLE);
+         }
+         else
+         {
+            // ignore all others
+         }
+      }
+      return getStyles();
+   }
+
+
+[COMMENT]
+Map an ANSI escape sequence to the appropriate css styles; only handles colors and visual appearance covered by SGR codes; other sequences such as cursor movement are ignored.",0
+138,"    public ArrayList getAllLinkHRefs() {
+        return this.link_href_all;
+    }
+
+
+
+[COMMENT]
+Get a list of all links",1
+840,"    private boolean isShareable() {
+        return getRequestScope().getDictionary().isSharable(obj.getClass());
+    }
+
+
+
+[COMMENT]
+Checks if this persistent resource's underlying entity is sharable.",1
